@@ -11,7 +11,13 @@
 @interface IntroScene : CCScene
 
 @end
-
-@interface StoryLayer : CCLayerColor
-
+//@ttgong-Add
+@interface StoryLayer : CCLayerColor <CCTargetedTouchDelegate>
+{
+    BOOL movedLeft;
+    BOOL shouldMove;
+    
+    CGSize winSize;
+}
+//@ttgong-End
 @end

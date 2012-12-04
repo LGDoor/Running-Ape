@@ -10,6 +10,12 @@
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
 
+//@ttgong-Add
+#define HIGHEST_SCORE @"highestScore"
+#define CURRENT_SCORE @"currentScore"
+#define BACKGROUND_SCROLL_DURATION 3.0
+//@ttgong-End
+
 @interface BackgroundLayer : CCLayer
 {
     CCSprite *_city;
@@ -20,6 +26,10 @@
 @interface ObjectsLayer : CCLayer
 {
     CCSprite *_player;
+//@ttgong-Add    
+    NSDate *startDate;
+    CGFloat timeSpent;
+//@ttgong-End
 }
 
 @end

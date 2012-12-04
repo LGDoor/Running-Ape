@@ -116,7 +116,7 @@
 	// Run the intro Scene
     IntroScene *introScene = [[IntroScene alloc] init];
     GameScene *gameScene = [[GameScene alloc] init];
-	[[CCDirector sharedDirector] runWithScene: gameScene];
+	[[CCDirector sharedDirector] runWithScene: introScene];
 }
 
 

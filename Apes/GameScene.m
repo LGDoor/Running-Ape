@@ -8,8 +8,12 @@
 
 
 #import "GameScene.h"
-#import "MainMenuScene.h"
+#import "FailureScene.h"
 #import "Enemy.h"
+
+
+
+
 
 @implementation GameScene
 -(id) init
@@ -33,13 +37,17 @@
 -(id) init
 {
 	if (self=[super init]) {
-        static ccTime BACKGROUND_SCROLL_DURATION = 3.0;
+//@ttgong-Delete
+//        static ccTime BACKGROUND_SCROLL_DURATION = 3.0; 
+//@ttgong-End
 		CCSprite *city1 = [CCSprite spriteWithFile:@"city.jpg"];
         city1.anchorPoint = ccp(0,0);
         city1.position = ccp(0,0);
         CCSprite *city2 = [CCSprite spriteWithFile:@"city.jpg"];
         city2.anchorPoint = ccp(0,0);
-        city2.position = ccp(city1.contentSize.width - 3, 0);
+//@ttgong-Modify
+        city2.position = ccp(city1.contentSize.width - 1, 0);
+//@ttgong-End
         _city = [[CCSprite alloc] init];
         [_city addChild:city1];
         [_city addChild:city2];
@@ -52,7 +60,9 @@
         ground1.position = ccp(0,0);
         CCSprite *ground2 = [CCSprite spriteWithFile:@"ground.jpg"];
         ground2.anchorPoint = ccp(0,0);
-        ground2.position = ccp(ground1.contentSize.width - 3, 0);
+//@ttgong-Modify
+        ground2.position = ccp(ground1.contentSize.width - 1, 0);
+//@ttgong-End
         _ground = [[CCSprite alloc] init];
         [_ground addChild:ground1];
         [_ground addChild:ground2];
@@ -113,10 +123,20 @@
         
         [self schedule:@selector(addEnemy) interval:0.5f];
         [self scheduleUpdate];
+//@ttgong-Add
+        startDate = [[NSDate date] retain];
+//@ttgong-End
     }
     return self;
 }
-
+//@ttgong-Add
+- (void)dealloc
+{
+    [startDate release], startDate = nil; 
+    
+    [super dealloc];
+}
+//@ttgong-End
 #define ARC4RANDOM_MAX      0x100000000
 - (void)addEnemy
 {
@@ -137,13 +157,29 @@
     }
 }
 
+//@ttgong-Add
+- (void)updateUserData:(CGFloat)score {
+    NSUserDefaults *userData = [NSUserDefaults standardUserDefaults];
+    [userData setFloat:score forKey:CURRENT_SCORE];
+    
+    
+    CGFloat highestScore = [userData floatForKey:HIGHEST_SCORE];
+    if(highestScore<score) [userData setFloat:score forKey:HIGHEST_SCORE];
+    [userData synchronize];
+}
+//@ttgong-End
+
 - (void)update:(ccTime)dt
 {
     CCSprite *policeToDelete = nil;
     CCSprite *bananaToDelete = nil;
     for (CCSprite *enemy in _enemies) {
         if (CGRectIntersectsRect(enemy.boundingBox, _player.boundingBox)) {
-            [[CCDirector sharedDirector] replaceScene:[[MainMenuScene alloc] init]];
+//@ttgong-Add
+            timeSpent = -[startDate timeIntervalSinceNow];
+            [self updateUserData:timeSpent];
+//@ttgong-End            
+            [[CCDirector sharedDirector] replaceScene:[[FailureScene alloc] init]];
         }
 
         for (CCSprite *banana in _bananas) {
