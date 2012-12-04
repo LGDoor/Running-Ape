@@ -144,7 +144,7 @@
     double p0 = ((double)arc4random() / ARC4RANDOM_MAX);
     if (p0 < 0.4) {
         double p1 = ((double)arc4random() / ARC4RANDOM_MAX);
-        CCSprite *enemy = nil;
+        Enemy *enemy = nil;
         if (p1 < 0.5) {     // police
             enemy = [Police police];
         } else {    // car
@@ -171,9 +171,9 @@
 
 - (void)update:(ccTime)dt
 {
-    CCSprite *policeToDelete = nil;
+    Enemy *enemyHit = nil;
     CCSprite *bananaToDelete = nil;
-    for (CCSprite *enemy in _enemies) {
+    for (Enemy *enemy in _enemies) {
         if (CGRectIntersectsRect(enemy.boundingBox, _player.boundingBox)) {
 //@ttgong-Add
             timeSpent = -[startDate timeIntervalSinceNow];
@@ -184,22 +184,24 @@
 
         for (CCSprite *banana in _bananas) {
             if (CGRectIntersectsRect(enemy.boundingBox, banana.boundingBox)) {
-                policeToDelete = enemy;
+                enemyHit = enemy;
                 bananaToDelete = banana;
                 break;
             }
         }
         
-        if (policeToDelete) {
-            break;
+        if (bananaToDelete) {
+            [_bananas removeObject:bananaToDelete];
+            [self removeChild:bananaToDelete cleanup:YES];
         }
     }
     
-    if (policeToDelete) {        
-        [_enemies removeObject:policeToDelete];
-        [_bananas removeObject:bananaToDelete];
-        [self removeChild:bananaToDelete cleanup:YES];
-        [self removeChild:policeToDelete cleanup:YES];
+    if (enemyHit) {
+        [enemyHit hit];
+        if (enemyHit.hp == 0) {
+            [_enemies removeObject:enemyHit];
+            [self removeChild:enemyHit cleanup:YES];
+        }
     }
 }
 

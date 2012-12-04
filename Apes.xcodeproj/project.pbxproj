@@ -14,6 +14,7 @@
 		B0505834166C7F0000D66021 /* page3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B050582A166C7F0000D66021 /* page3.jpg */; };
 		B0505836166C7F0000D66021 /* restart_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B050582C166C7F0000D66021 /* restart_button.png */; };
 		B0505853166E1A1800D66021 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B0505852166E1A1800D66021 /* MainMenuScene.m */; };
+		B0505856166E30E100D66021 /* policecar2.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505855166E30E100D66021 /* policecar2.png */; };
 		B080515B1664F82F008F143B /* orang.png in Resources */ = {isa = PBXBuildFile; fileRef = B08051591664F82F008F143B /* orang.png */; };
 		B080515C1664F82F008F143B /* orang.plist in Resources */ = {isa = PBXBuildFile; fileRef = B080515A1664F82F008F143B /* orang.plist */; };
 		B080515E166516AB008F143B /* ground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B080515D166516AB008F143B /* ground.jpg */; };
@@ -150,6 +151,7 @@
 		B050582C166C7F0000D66021 /* restart_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = restart_button.png; path = Resources/restart_button.png; sourceTree = "<group>"; };
 		B0505851166E1A1800D66021 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		B0505852166E1A1800D66021 /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
+		B0505855166E30E100D66021 /* policecar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = policecar2.png; sourceTree = "<group>"; };
 		B08051591664F82F008F143B /* orang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orang.png; path = Resources/orang.png; sourceTree = "<group>"; };
 		B080515A1664F82F008F143B /* orang.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = orang.plist; path = Resources/orang.plist; sourceTree = "<group>"; };
 		B080515D166516AB008F143B /* ground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ground.jpg; path = Resources/ground.jpg; sourceTree = "<group>"; };
@@ -472,6 +474,7 @@
 			children = (
 				B09729AE1669E464004E9DAC /* police1.png */,
 				B0505819166A077A00D66021 /* policecar1.png */,
+				B0505855166E30E100D66021 /* policecar2.png */,
 				B08051651665C031008F143B /* banana.png */,
 				B08051611665AF3A008F143B /* jump_button.png */,
 				B08051631665AF43008F143B /* shot_button.png */,
@@ -844,6 +847,7 @@
 				B0505832166C7F0000D66021 /* page2.jpg in Resources */,
 				B0505834166C7F0000D66021 /* page3.jpg in Resources */,
 				B0505836166C7F0000D66021 /* restart_button.png in Resources */,
+				B0505856166E30E100D66021 /* policecar2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

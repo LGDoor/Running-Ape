@@ -8,6 +8,16 @@
 
 #import "Enemy.h"
 
+@implementation Enemy
+
+@synthesize hp = _hp;
+
+- (void)hit
+{
+    self.hp -= 1;
+}
+@end
+
 @implementation Police
 
 + (Police*)police
@@ -15,7 +25,7 @@
     Police *police = nil;
     if ((police = [[Police alloc] initWithFile:@"police1.png"]))
     {
-        
+        police.hp = 1;
     }
     return police;
 }
@@ -24,7 +34,6 @@
 
 
 @implementation Car
-@synthesize hp = _hp;
 + (Car*)car
 {
     Car *car = nil;
@@ -33,5 +42,21 @@
         car.hp = 2;
     }
     return car;
+}
+
+- (void)hit
+{
+    CCTexture2D* tex;
+    
+    [super hit];
+    switch (self.hp)
+    {
+        case 1:
+            tex = [[CCTextureCache sharedTextureCache] addImage:@"policecar2.png"];
+            [self setTexture: tex];
+            break;            
+        default:
+            break;
+    }
 }
 @end

@@ -8,12 +8,16 @@
 
 #import "cocos2d.h"
 
-@interface Police : CCSprite
+@interface Enemy : CCSprite
+@property (nonatomic, assign) int hp;
+
+- (void)hit;
+@end
+
+@interface Police : Enemy
 + (Police*)police;
 @end
 
-@interface Car : CCSprite
-
-@property (nonatomic, assign) int hp;
+@interface Car : Enemy
 + (Car*)car;
 @end
