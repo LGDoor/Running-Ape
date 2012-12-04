@@ -145,12 +145,16 @@
     if (p0 < 0.4) {
         double p1 = ((double)arc4random() / ARC4RANDOM_MAX);
         Enemy *enemy = nil;
-        if (p1 < 0.5) {     // police
+        if (p1 < 0.4) {     // police
             enemy = [Police police];
-        } else {    // car
+            enemy.position = ccp(winSize.width, 80);
+        } else if (p1 < 0.8) {    // car
             enemy = [Car car];
+            enemy.position = ccp(winSize.width, 80);
+        } else { // plane
+            enemy = [Airplane airplane];
+            enemy.position = ccp(winSize.width, 200);
         }
-        enemy.position = ccp(winSize.width, 80);
         [enemy runAction:[CCMoveBy actionWithDuration:3.0 position:ccp(-winSize.width - enemy.contentSize.width, 0)]];
         [self addChild:enemy];
         [_enemies addObject:enemy];

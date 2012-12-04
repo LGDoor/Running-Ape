@@ -15,6 +15,7 @@
 		B0505836166C7F0000D66021 /* restart_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B050582C166C7F0000D66021 /* restart_button.png */; };
 		B0505853166E1A1800D66021 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B0505852166E1A1800D66021 /* MainMenuScene.m */; };
 		B0505856166E30E100D66021 /* policecar2.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505855166E30E100D66021 /* policecar2.png */; };
+		B0505858166E33F600D66021 /* airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505857166E33F600D66021 /* airplane.png */; };
 		B080515B1664F82F008F143B /* orang.png in Resources */ = {isa = PBXBuildFile; fileRef = B08051591664F82F008F143B /* orang.png */; };
 		B080515C1664F82F008F143B /* orang.plist in Resources */ = {isa = PBXBuildFile; fileRef = B080515A1664F82F008F143B /* orang.plist */; };
 		B080515E166516AB008F143B /* ground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B080515D166516AB008F143B /* ground.jpg */; };
@@ -152,6 +153,7 @@
 		B0505851166E1A1800D66021 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		B0505852166E1A1800D66021 /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
 		B0505855166E30E100D66021 /* policecar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = policecar2.png; sourceTree = "<group>"; };
+		B0505857166E33F600D66021 /* airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airplane.png; sourceTree = "<group>"; };
 		B08051591664F82F008F143B /* orang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = orang.png; path = Resources/orang.png; sourceTree = "<group>"; };
 		B080515A1664F82F008F143B /* orang.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = orang.plist; path = Resources/orang.plist; sourceTree = "<group>"; };
 		B080515D166516AB008F143B /* ground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ground.jpg; path = Resources/ground.jpg; sourceTree = "<group>"; };
@@ -166,7 +168,7 @@
 		B09729AB1669E40D004E9DAC /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		B09729AC1669E40D004E9DAC /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
 		B09729AE1669E464004E9DAC /* police1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = police1.png; path = Resources/police1.png; sourceTree = "<group>"; };
-		B0B9991E165EF910008FF149 /* Apes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Apes.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B9991E165EF910008FF149 /* RunningApe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningApe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B99922165EF910008FF149 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B0B99924165EF910008FF149 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		B0B99926165EF910008FF149 /* OpenAL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenAL.framework; path = System/Library/Frameworks/OpenAL.framework; sourceTree = SDKROOT; };
@@ -415,7 +417,7 @@
 		B0B99913165EF910008FF149 = {
 			isa = PBXGroup;
 			children = (
-				B0B99932165EF910008FF149 /* Apes */,
+				B0B99932165EF910008FF149 /* RunningApe */,
 				B0B99921165EF910008FF149 /* Frameworks */,
 				B0B9991F165EF910008FF149 /* Products */,
 			);
@@ -424,7 +426,7 @@
 		B0B9991F165EF910008FF149 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B0B9991E165EF910008FF149 /* Apes.app */,
+				B0B9991E165EF910008FF149 /* RunningApe.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -444,7 +446,7 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		B0B99932165EF910008FF149 /* Apes */ = {
+		B0B99932165EF910008FF149 /* RunningApe */ = {
 			isa = PBXGroup;
 			children = (
 				B0B99933165EF910008FF149 /* Resources */,
@@ -466,6 +468,7 @@
 				B09729AB1669E40D004E9DAC /* Enemy.h */,
 				B09729AC1669E40D004E9DAC /* Enemy.m */,
 			);
+			name = RunningApe;
 			path = Apes;
 			sourceTree = "<group>";
 		};
@@ -475,6 +478,7 @@
 				B09729AE1669E464004E9DAC /* police1.png */,
 				B0505819166A077A00D66021 /* policecar1.png */,
 				B0505855166E30E100D66021 /* policecar2.png */,
+				B0505857166E33F600D66021 /* airplane.png */,
 				B08051651665C031008F143B /* banana.png */,
 				B08051611665AF3A008F143B /* jump_button.png */,
 				B08051631665AF43008F143B /* shot_button.png */,
@@ -773,9 +777,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B0B9991D165EF910008FF149 /* Apes */ = {
+		B0B9991D165EF910008FF149 /* RunningApe */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B0B99A7F165EF911008FF149 /* Build configuration list for PBXNativeTarget "Apes" */;
+			buildConfigurationList = B0B99A7F165EF911008FF149 /* Build configuration list for PBXNativeTarget "RunningApe" */;
 			buildPhases = (
 				B0B9991A165EF910008FF149 /* Sources */,
 				B0B9991B165EF910008FF149 /* Frameworks */,
@@ -785,9 +789,9 @@
 			);
 			dependencies = (
 			);
-			name = Apes;
+			name = RunningApe;
 			productName = Apes;
-			productReference = B0B9991E165EF910008FF149 /* Apes.app */;
+			productReference = B0B9991E165EF910008FF149 /* RunningApe.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -798,7 +802,7 @@
 			attributes = {
 				LastUpgradeCheck = 0450;
 			};
-			buildConfigurationList = B0B99918165EF910008FF149 /* Build configuration list for PBXProject "Apes" */;
+			buildConfigurationList = B0B99918165EF910008FF149 /* Build configuration list for PBXProject "RunningApe" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -810,7 +814,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B0B9991D165EF910008FF149 /* Apes */,
+				B0B9991D165EF910008FF149 /* RunningApe */,
 			);
 		};
 /* End PBXProject section */
@@ -848,6 +852,7 @@
 				B0505834166C7F0000D66021 /* page3.jpg in Resources */,
 				B0505836166C7F0000D66021 /* restart_button.png in Resources */,
 				B0505856166E30E100D66021 /* policecar2.png in Resources */,
+				B0505858166E33F600D66021 /* airplane.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1006,7 +1011,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = Apes/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RunningApe;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1021,7 +1026,7 @@
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = Apes/Resources/Info.plist;
 				OTHER_LDFLAGS = "-lz";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = RunningApe;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -1030,7 +1035,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B0B99918165EF910008FF149 /* Build configuration list for PBXProject "Apes" */ = {
+		B0B99918165EF910008FF149 /* Build configuration list for PBXProject "RunningApe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0B99A7D165EF911008FF149 /* Debug */,
@@ -1039,7 +1044,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B0B99A7F165EF911008FF149 /* Build configuration list for PBXNativeTarget "Apes" */ = {
+		B0B99A7F165EF911008FF149 /* Build configuration list for PBXNativeTarget "RunningApe" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B0B99A80165EF911008FF149 /* Debug */,

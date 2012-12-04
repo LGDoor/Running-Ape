@@ -21,3 +21,7 @@
 @interface Car : Enemy
 + (Car*)car;
 @end
+
+@interface Airplane : Enemy
++ (Airplane*)airplane;
+@end

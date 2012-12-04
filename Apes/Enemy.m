@@ -60,3 +60,17 @@
     }
 }
 @end
+
+@implementation Airplane
+
++ (Airplane*)airplane
+{
+    Airplane *airplane = nil;
+    if ((airplane = [[Airplane alloc] initWithFile:@"airplane.png"]))
+    {
+        airplane.hp = 1;
+    }
+    return airplane;
+}
+
+@end
