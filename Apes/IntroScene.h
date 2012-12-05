@@ -12,7 +12,7 @@
 
 @end
 //@ttgong-Add
-@interface StoryLayer : CCLayerColor <CCTargetedTouchDelegate>
+@interface StoryLayer : CCLayer <CCTargetedTouchDelegate>
 {
     BOOL movedLeft;
     BOOL shouldMove;

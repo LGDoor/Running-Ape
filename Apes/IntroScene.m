@@ -29,7 +29,7 @@
 //@ttgong-Add
 - (id)init
 {
-    if (self = [super initWithColor:ccc4(255, 255, 255, 255)])
+    if (self = [super init])
     {
         winSize = [[CCDirector sharedDirector] winSize];
         
@@ -40,7 +40,7 @@
         CCLabelTTF *next = [CCLabelTTF labelWithString:@"Enter" fontName:@"Arial" fontSize:36.0f];
         next.color = ccc3(220, 0, 0);
         CCMenuItemLabel *nextItem = [CCMenuItemLabel itemWithLabel:next block:^(id sender){
-            [[CCDirector sharedDirector] replaceScene:[[GameScene alloc] init]];
+            [[CCDirector sharedDirector] replaceScene:[[MainMenuScene alloc] init]];
         }];
         CCMenu *menu = [CCMenu menuWithItems:nextItem, nil];
         menu.position = ccp(winSize.width - next.contentSize.width / 2 - 20, next.contentSize.height / 2 + 10);
