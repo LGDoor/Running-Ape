@@ -14,7 +14,6 @@
 //@ttgong-Add
 @interface StoryLayer : CCLayer <CCTargetedTouchDelegate>
 {
-    BOOL movedLeft;
     BOOL shouldMove;
     
     CGSize winSize;

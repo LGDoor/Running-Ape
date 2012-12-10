@@ -15,6 +15,6 @@
 
 @end
 
-@interface MenuLayer : CCLayerColor
+@interface MenuLayer : CCLayer
 
 @end

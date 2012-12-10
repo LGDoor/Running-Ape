@@ -9,16 +9,17 @@
 
 // When you import this file, you import all the cocos2d classes
 #import "cocos2d.h"
+#import "GameConstant.h"
 
 //@ttgong-Add
 #define HIGHEST_SCORE @"highestScore"
 #define CURRENT_SCORE @"currentScore"
-#define BACKGROUND_SCROLL_DURATION 3.0
 //@ttgong-End
 
 @interface BackgroundLayer : CCLayer
 {
-    CCSprite *_city;
+    CCSprite *_citya;
+    CCSprite *_cityb;
     CCSprite *_ground;
 }
 @end
@@ -26,6 +27,7 @@
 @interface ObjectsLayer : CCLayer
 {
     CCSprite *_player;
+    CCSpriteBatchNode *_policeBatchNode;
 //@ttgong-Add    
     NSDate *startDate;
     CGFloat timeSpent;
@@ -39,9 +41,14 @@
     ObjectsLayer *_objLayer;
     CCMenuItem *_jumpButton;
     CCMenuItem *_shootButton;
+    CCMenuItem *_pauseButton;
 }
 
 -(id)initWithObjLayer:(ObjectsLayer*)objLayer;
+@end
+
+@interface PauseLayer : CCLayerColor
+
 @end
 
 @interface GameScene : CCScene

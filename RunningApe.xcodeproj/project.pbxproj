@@ -7,19 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B050581A166A077A00D66021 /* policecar1.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505819166A077A00D66021 /* policecar1.png */; };
-		B050582E166C7F0000D66021 /* final_page.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0505824166C7F0000D66021 /* final_page.jpg */; };
-		B0505830166C7F0000D66021 /* page1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0505826166C7F0000D66021 /* page1.jpg */; };
-		B0505832166C7F0000D66021 /* page2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0505828166C7F0000D66021 /* page2.jpg */; };
-		B0505834166C7F0000D66021 /* page3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B050582A166C7F0000D66021 /* page3.jpg */; };
-		B0505836166C7F0000D66021 /* restart_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B050582C166C7F0000D66021 /* restart_button.png */; };
+		B01E74601673711F002BADD2 /* city_a.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E745E1673711F002BADD2 /* city_a.png */; };
+		B01E74611673711F002BADD2 /* city_b.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E745F1673711F002BADD2 /* city_b.png */; };
+		B01E74731674EDBD002BADD2 /* start_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E74721674EDBD002BADD2 /* start_button.png */; };
+		B01E74751674EDC8002BADD2 /* restart_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E74741674EDC8002BADD2 /* restart_button.png */; };
+		B01E74771674EE36002BADD2 /* pause_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E74761674EE36002BADD2 /* pause_button.png */; };
+		B01E74B916764790002BADD2 /* main_menu_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E74B816764790002BADD2 /* main_menu_bg.png */; };
+		B050582E166C7F0000D66021 /* final_page.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505824166C7F0000D66021 /* final_page.png */; };
+		B0505830166C7F0000D66021 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505826166C7F0000D66021 /* page1.png */; };
+		B0505832166C7F0000D66021 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505828166C7F0000D66021 /* page2.png */; };
 		B0505853166E1A1800D66021 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B0505852166E1A1800D66021 /* MainMenuScene.m */; };
-		B0505856166E30E100D66021 /* policecar2.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505855166E30E100D66021 /* policecar2.png */; };
 		B0505858166E33F600D66021 /* airplane.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505857166E33F600D66021 /* airplane.png */; };
-		B080515B1664F82F008F143B /* orang.png in Resources */ = {isa = PBXBuildFile; fileRef = B08051591664F82F008F143B /* orang.png */; };
-		B080515C1664F82F008F143B /* orang.plist in Resources */ = {isa = PBXBuildFile; fileRef = B080515A1664F82F008F143B /* orang.plist */; };
-		B080515E166516AB008F143B /* ground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B080515D166516AB008F143B /* ground.jpg */; };
-		B08051601665194A008F143B /* city.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B080515F1665194A008F143B /* city.jpg */; };
+		B080515E166516AB008F143B /* ground.png in Resources */ = {isa = PBXBuildFile; fileRef = B080515D166516AB008F143B /* ground.png */; };
 		B08051621665AF3A008F143B /* jump_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B08051611665AF3A008F143B /* jump_button.png */; };
 		B08051641665AF43008F143B /* shot_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B08051631665AF43008F143B /* shot_button.png */; };
 		B08051661665C031008F143B /* banana.png in Resources */ = {isa = PBXBuildFile; fileRef = B08051651665C031008F143B /* banana.png */; };
@@ -28,7 +27,8 @@
 		B09729A51669D645004E9DAC /* FailureScene.m in Resources */ = {isa = PBXBuildFile; fileRef = B09729A31669D644004E9DAC /* FailureScene.m */; };
 		B09729A61669D701004E9DAC /* FailureScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B09729A31669D644004E9DAC /* FailureScene.m */; };
 		B09729AD1669E40D004E9DAC /* Enemy.m in Sources */ = {isa = PBXBuildFile; fileRef = B09729AC1669E40D004E9DAC /* Enemy.m */; };
-		B09729AF1669E464004E9DAC /* police1.png in Resources */ = {isa = PBXBuildFile; fileRef = B09729AE1669E464004E9DAC /* police1.png */; };
+		B0B554AD1673493200FB3E9A /* police.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0B554AB1673493200FB3E9A /* police.plist */; };
+		B0B554AE1673493200FB3E9A /* police.png in Resources */ = {isa = PBXBuildFile; fileRef = B0B554AC1673493200FB3E9A /* police.png */; };
 		B0B99923165EF910008FF149 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B99922165EF910008FF149 /* QuartzCore.framework */; };
 		B0B99925165EF910008FF149 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B99924165EF910008FF149 /* OpenGLES.framework */; };
 		B0B99927165EF910008FF149 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B99926165EF910008FF149 /* OpenAL.framework */; };
@@ -142,23 +142,28 @@
 		B0B99A78165EF911008FF149 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B99A77165EF911008FF149 /* RootViewController.m */; };
 		B0B99A7B165EF911008FF149 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B0B99A7A165EF911008FF149 /* GameScene.m */; };
 		B0E44E791671AB6D007D9FA3 /* bullet.png in Resources */ = {isa = PBXBuildFile; fileRef = B0E44E781671AB6D007D9FA3 /* bullet.png */; };
+		B0E44E7D1671DB32007D9FA3 /* ape.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0E44E7B1671DB31007D9FA3 /* ape.plist */; };
+		B0E44E7E1671DB32007D9FA3 /* ape.png in Resources */ = {isa = PBXBuildFile; fileRef = B0E44E7C1671DB31007D9FA3 /* ape.png */; };
+		B0ECAF571671E8A100F51CA3 /* ape_shadow.png in Resources */ = {isa = PBXBuildFile; fileRef = B0ECAF561671E8A100F51CA3 /* ape_shadow.png */; };
+		B0ECAF5C1671EABE00F51CA3 /* policecar2.png in Resources */ = {isa = PBXBuildFile; fileRef = B0ECAF5B1671EABD00F51CA3 /* policecar2.png */; };
+		B0ECAF5E1671EAC300F51CA3 /* policecar1.png in Resources */ = {isa = PBXBuildFile; fileRef = B0ECAF5D1671EAC300F51CA3 /* policecar1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		B0505819166A077A00D66021 /* policecar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = policecar1.png; sourceTree = "<group>"; };
-		B0505824166C7F0000D66021 /* final_page.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = final_page.jpg; sourceTree = "<group>"; };
-		B0505826166C7F0000D66021 /* page1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = page1.jpg; sourceTree = "<group>"; };
-		B0505828166C7F0000D66021 /* page2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = page2.jpg; sourceTree = "<group>"; };
-		B050582A166C7F0000D66021 /* page3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = page3.jpg; sourceTree = "<group>"; };
-		B050582C166C7F0000D66021 /* restart_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restart_button.png; sourceTree = "<group>"; };
+		B01E745A16735FEF002BADD2 /* GameConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameConstant.h; sourceTree = "<group>"; };
+		B01E745E1673711F002BADD2 /* city_a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = city_a.png; sourceTree = "<group>"; };
+		B01E745F1673711F002BADD2 /* city_b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = city_b.png; sourceTree = "<group>"; };
+		B01E74721674EDBD002BADD2 /* start_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = start_button.png; sourceTree = "<group>"; };
+		B01E74741674EDC8002BADD2 /* restart_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = restart_button.png; sourceTree = "<group>"; };
+		B01E74761674EE36002BADD2 /* pause_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pause_button.png; sourceTree = "<group>"; };
+		B01E74B816764790002BADD2 /* main_menu_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_menu_bg.png; sourceTree = "<group>"; };
+		B0505824166C7F0000D66021 /* final_page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = final_page.png; sourceTree = "<group>"; };
+		B0505826166C7F0000D66021 /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
+		B0505828166C7F0000D66021 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
 		B0505851166E1A1800D66021 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
 		B0505852166E1A1800D66021 /* MainMenuScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainMenuScene.m; sourceTree = "<group>"; };
-		B0505855166E30E100D66021 /* policecar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = policecar2.png; sourceTree = "<group>"; };
 		B0505857166E33F600D66021 /* airplane.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = airplane.png; sourceTree = "<group>"; };
-		B08051591664F82F008F143B /* orang.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = orang.png; sourceTree = "<group>"; };
-		B080515A1664F82F008F143B /* orang.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = orang.plist; sourceTree = "<group>"; };
-		B080515D166516AB008F143B /* ground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ground.jpg; sourceTree = "<group>"; };
-		B080515F1665194A008F143B /* city.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = city.jpg; sourceTree = "<group>"; };
+		B080515D166516AB008F143B /* ground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ground.png; sourceTree = "<group>"; };
 		B08051611665AF3A008F143B /* jump_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = jump_button.png; sourceTree = "<group>"; };
 		B08051631665AF43008F143B /* shot_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shot_button.png; sourceTree = "<group>"; };
 		B08051651665C031008F143B /* banana.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banana.png; sourceTree = "<group>"; };
@@ -168,7 +173,8 @@
 		B09729A31669D644004E9DAC /* FailureScene.m */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.objc; fileEncoding = 4; path = FailureScene.m; sourceTree = "<group>"; };
 		B09729AB1669E40D004E9DAC /* Enemy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Enemy.h; sourceTree = "<group>"; };
 		B09729AC1669E40D004E9DAC /* Enemy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Enemy.m; sourceTree = "<group>"; };
-		B09729AE1669E464004E9DAC /* police1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = police1.png; sourceTree = "<group>"; };
+		B0B554AB1673493200FB3E9A /* police.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = police.plist; sourceTree = "<group>"; };
+		B0B554AC1673493200FB3E9A /* police.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = police.png; sourceTree = "<group>"; };
 		B0B9991E165EF910008FF149 /* RunningApe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningApe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B99922165EF910008FF149 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		B0B99924165EF910008FF149 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -395,6 +401,11 @@
 		B0B99A7A165EF911008FF149 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		B0B99A7C165EF911008FF149 /* GameConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameConfig.h; sourceTree = "<group>"; };
 		B0E44E781671AB6D007D9FA3 /* bullet.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bullet.png; sourceTree = "<group>"; };
+		B0E44E7B1671DB31007D9FA3 /* ape.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ape.plist; sourceTree = "<group>"; };
+		B0E44E7C1671DB31007D9FA3 /* ape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ape.png; sourceTree = "<group>"; };
+		B0ECAF561671E8A100F51CA3 /* ape_shadow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ape_shadow.png; sourceTree = "<group>"; };
+		B0ECAF5B1671EABD00F51CA3 /* policecar2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = policecar2.png; sourceTree = "<group>"; };
+		B0ECAF5D1671EAC300F51CA3 /* policecar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = policecar1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +477,7 @@
 				B0505852166E1A1800D66021 /* MainMenuScene.m */,
 				B0B99A79165EF911008FF149 /* GameScene.h */,
 				B0B99A7A165EF911008FF149 /* GameScene.m */,
+				B01E745A16735FEF002BADD2 /* GameConstant.h */,
 				B0B99A7C165EF911008FF149 /* GameConfig.h */,
 				B09729AB1669E40D004E9DAC /* Enemy.h */,
 				B09729AC1669E40D004E9DAC /* Enemy.m */,
@@ -477,23 +489,28 @@
 		B0B99933165EF910008FF149 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B01E74B816764790002BADD2 /* main_menu_bg.png */,
+				B0E44E7B1671DB31007D9FA3 /* ape.plist */,
+				B0E44E7C1671DB31007D9FA3 /* ape.png */,
+				B0ECAF561671E8A100F51CA3 /* ape_shadow.png */,
 				B0E44E781671AB6D007D9FA3 /* bullet.png */,
-				B09729AE1669E464004E9DAC /* police1.png */,
-				B0505819166A077A00D66021 /* policecar1.png */,
-				B0505855166E30E100D66021 /* policecar2.png */,
+				B0B554AB1673493200FB3E9A /* police.plist */,
+				B0B554AC1673493200FB3E9A /* police.png */,
+				B0ECAF5D1671EAC300F51CA3 /* policecar1.png */,
+				B0ECAF5B1671EABD00F51CA3 /* policecar2.png */,
 				B0505857166E33F600D66021 /* airplane.png */,
 				B08051651665C031008F143B /* banana.png */,
+				B01E745E1673711F002BADD2 /* city_a.png */,
+				B01E745F1673711F002BADD2 /* city_b.png */,
 				B08051611665AF3A008F143B /* jump_button.png */,
 				B08051631665AF43008F143B /* shot_button.png */,
-				B080515F1665194A008F143B /* city.jpg */,
-				B080515D166516AB008F143B /* ground.jpg */,
-				B08051591664F82F008F143B /* orang.png */,
-				B080515A1664F82F008F143B /* orang.plist */,
-				B0505824166C7F0000D66021 /* final_page.jpg */,
-				B0505826166C7F0000D66021 /* page1.jpg */,
-				B0505828166C7F0000D66021 /* page2.jpg */,
-				B050582A166C7F0000D66021 /* page3.jpg */,
-				B050582C166C7F0000D66021 /* restart_button.png */,
+				B080515D166516AB008F143B /* ground.png */,
+				B0505824166C7F0000D66021 /* final_page.png */,
+				B0505826166C7F0000D66021 /* page1.png */,
+				B0505828166C7F0000D66021 /* page2.png */,
+				B01E74721674EDBD002BADD2 /* start_button.png */,
+				B01E74741674EDC8002BADD2 /* restart_button.png */,
+				B01E74761674EE36002BADD2 /* pause_button.png */,
 				B0B99934165EF910008FF149 /* Default.png */,
 				B0B99936165EF910008FF149 /* Default@2x.png */,
 				B0B99938165EF910008FF149 /* Default-568h@2x.png */,
@@ -838,25 +855,30 @@
 				B0B99945165EF910008FF149 /* Icon.png in Resources */,
 				B0B99947165EF910008FF149 /* Icon@2x.png in Resources */,
 				B0B9994A165EF910008FF149 /* iTunesArtwork in Resources */,
-				B080515B1664F82F008F143B /* orang.png in Resources */,
-				B080515C1664F82F008F143B /* orang.plist in Resources */,
-				B080515E166516AB008F143B /* ground.jpg in Resources */,
-				B08051601665194A008F143B /* city.jpg in Resources */,
+				B080515E166516AB008F143B /* ground.png in Resources */,
 				B08051621665AF3A008F143B /* jump_button.png in Resources */,
 				B08051641665AF43008F143B /* shot_button.png in Resources */,
 				B08051661665C031008F143B /* banana.png in Resources */,
 				B09729A41669D645004E9DAC /* FailureScene.h in Resources */,
 				B09729A51669D645004E9DAC /* FailureScene.m in Resources */,
-				B09729AF1669E464004E9DAC /* police1.png in Resources */,
-				B050581A166A077A00D66021 /* policecar1.png in Resources */,
-				B050582E166C7F0000D66021 /* final_page.jpg in Resources */,
-				B0505830166C7F0000D66021 /* page1.jpg in Resources */,
-				B0505832166C7F0000D66021 /* page2.jpg in Resources */,
-				B0505834166C7F0000D66021 /* page3.jpg in Resources */,
-				B0505836166C7F0000D66021 /* restart_button.png in Resources */,
-				B0505856166E30E100D66021 /* policecar2.png in Resources */,
+				B050582E166C7F0000D66021 /* final_page.png in Resources */,
+				B0505830166C7F0000D66021 /* page1.png in Resources */,
+				B0505832166C7F0000D66021 /* page2.png in Resources */,
 				B0505858166E33F600D66021 /* airplane.png in Resources */,
 				B0E44E791671AB6D007D9FA3 /* bullet.png in Resources */,
+				B0E44E7D1671DB32007D9FA3 /* ape.plist in Resources */,
+				B0E44E7E1671DB32007D9FA3 /* ape.png in Resources */,
+				B0ECAF571671E8A100F51CA3 /* ape_shadow.png in Resources */,
+				B0ECAF5C1671EABE00F51CA3 /* policecar2.png in Resources */,
+				B0ECAF5E1671EAC300F51CA3 /* policecar1.png in Resources */,
+				B0B554AD1673493200FB3E9A /* police.plist in Resources */,
+				B0B554AE1673493200FB3E9A /* police.png in Resources */,
+				B01E74601673711F002BADD2 /* city_a.png in Resources */,
+				B01E74611673711F002BADD2 /* city_b.png in Resources */,
+				B01E74731674EDBD002BADD2 /* start_button.png in Resources */,
+				B01E74751674EDC8002BADD2 /* restart_button.png in Resources */,
+				B01E74771674EE36002BADD2 /* pause_button.png in Resources */,
+				B01E74B916764790002BADD2 /* main_menu_bg.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

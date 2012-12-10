@@ -4,31 +4,31 @@
     <dict>
         <key>frames</key>
         <dict>
-            <key>orang1.png</key>
+            <key>ape1.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,2},{120,83}}</string>
+                <string>{{2,2},{35,36}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{120,83}}</string>
+                <string>{{0,0},{35,36}}</string>
                 <key>sourceSize</key>
-                <string>{120,83}</string>
+                <string>{35,36}</string>
             </dict>
-            <key>orang2.png</key>
+            <key>ape2.png</key>
             <dict>
                 <key>frame</key>
-                <string>{{2,87},{120,83}}</string>
+                <string>{{2,40},{35,36}}</string>
                 <key>offset</key>
                 <string>{0,0}</string>
                 <key>rotated</key>
                 <false/>
                 <key>sourceColorRect</key>
-                <string>{{0,0},{120,83}}</string>
+                <string>{{0,0},{35,36}}</string>
                 <key>sourceSize</key>
-                <string>{120,83}</string>
+                <string>{35,36}</string>
             </dict>
         </dict>
         <key>metadata</key>
@@ -36,13 +36,13 @@
             <key>format</key>
             <integer>2</integer>
             <key>realTextureFileName</key>
-            <string>orang.png</string>
+            <string>ape.png</string>
             <key>size</key>
-            <string>{128,256}</string>
+            <string>{64,128}</string>
             <key>smartupdate</key>
-            <string>$TexturePacker:SmartUpdate:f999299900d0f06620631710c8a0a4f5$</string>
+            <string>$TexturePacker:SmartUpdate:15e9ee0a6acf68c943d3eeeb93c07e66$</string>
             <key>textureFileName</key>
-            <string>orang.png</string>
+            <string>ape.png</string>
         </dict>
     </dict>
 </plist>

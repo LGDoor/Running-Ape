@@ -15,7 +15,13 @@
 @end
 
 @interface Police : Enemy
-+ (Police*)police;
+{
+    CCSprite *_fire;
+    CCSprite *_shadow;
+}
+- (id)initPolice;
+- (void)fireBlink;
+@property (nonatomic, strong, readonly) CCSpriteBatchNode *batchNode;
 @end
 
 @interface Car : Enemy

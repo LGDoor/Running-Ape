@@ -28,7 +28,7 @@
     if (self = [super init])
     {
 //@ttgong-Add
-        CCSprite *bg = [CCSprite spriteWithFile:@"final_page.jpg"];
+        CCSprite *bg = [CCSprite spriteWithFile:@"final_page.png"];
         bg.anchorPoint = CGPointMake(0, 0);
         [self addChild:bg];
         
@@ -38,8 +38,8 @@
         CGFloat highestScore = [userData floatForKey:HIGHEST_SCORE];
         CGFloat currentScore = [userData floatForKey:CURRENT_SCORE];
         
-        NSString *highestScoreStr = [NSString stringWithFormat:@"HIGHEST SCORE: %im", (int)(highestScore * BACKGROUND_SCROLL_DURATION)];
-        NSString *currentScoreStr = [NSString stringWithFormat:@"CURRENT SCORE: %im", (int)(currentScore * BACKGROUND_SCROLL_DURATION)];
+        NSString *highestScoreStr = [NSString stringWithFormat:@"HIGHEST SCORE: %im", (int)(highestScore)];
+        NSString *currentScoreStr = [NSString stringWithFormat:@"CURRENT SCORE: %im", (int)(currentScore)];
         
         
         CCLabelTTF *highestLabel = [CCLabelTTF labelWithString:highestScoreStr fontName:@"Arial" fontSize:20.0f];

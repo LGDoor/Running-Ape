@@ -53,20 +53,15 @@
         [self addChild:page];
         
         // page 1
-        CCSprite *page1 = [CCSprite spriteWithFile:@"page1.jpg" rect:CGRectMake(0, 0, winSize.width, winSize.height)];
+        CCSprite *page1 = [CCSprite spriteWithFile:@"page1.png" rect:CGRectMake(0, 0, winSize.width, winSize.height)];
         page1.anchorPoint = CGPointMake(0, 0);
         [page addChild:page1];
         
         // page 2
-        CCSprite *page2 = [CCSprite spriteWithFile:@"page2.jpg" rect:CGRectMake(0, 0, winSize.width, winSize.height)];
+        CCSprite *page2 = [CCSprite spriteWithFile:@"page2.png" rect:CGRectMake(0, 0, winSize.width, winSize.height)];
         page2.anchorPoint = CGPointMake(-1, 0);
         [page addChild:page2];
-
-        // page 3
-        CCSprite *page3 = [CCSprite spriteWithFile:@"page3.jpg" rect:CGRectMake(0, 0, winSize.width, winSize.height)];
-        page3.anchorPoint = CGPointMake(-1, 1);
-        [page addChild:page3];
-        [page3 addChild:menu];
+        [page2 addChild:menu];
     }
     return self;
 }
@@ -88,17 +83,12 @@
     // page animation
     if(!shouldMove) return;
     CCLayerColor *page = (CCLayerColor *)[self getChildByTag:999];
-    if ( !movedLeft ) {
-        shouldMove = NO;
-        CCMoveBy *moveLeft = [CCMoveBy actionWithDuration:0.5 position:CGPointMake(-winSize.width, 0)];
-        id enableTouch = [CCCallFunc actionWithTarget:self selector:@selector(enableTouch)];
-        [page runAction:[CCSequence actionOne:moveLeft two:enableTouch]];
-        movedLeft = YES;
-    } else {
-        shouldMove = NO;
-        CCMoveBy *moveUp = [CCMoveBy actionWithDuration:0.5 position:CGPointMake(0, winSize.height)];
-        [page runAction:moveUp];
-    }
+
+    shouldMove = NO;
+    CCMoveBy *moveLeft = [CCMoveBy actionWithDuration:0.5 position:CGPointMake(-winSize.width, 0)];
+//    id enableTouch = [CCCallFunc actionWithTarget:self selector:@selector(enableTouch)];
+    [page runAction:moveLeft];
+
 }
 
 - (void)enableTouch {
