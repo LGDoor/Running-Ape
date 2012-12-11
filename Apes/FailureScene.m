@@ -38,20 +38,19 @@
         CGFloat highestScore = [userData floatForKey:HIGHEST_SCORE];
         CGFloat currentScore = [userData floatForKey:CURRENT_SCORE];
         
-        NSString *highestScoreStr = [NSString stringWithFormat:@"HIGHEST SCORE: %im", (int)(highestScore)];
-        NSString *currentScoreStr = [NSString stringWithFormat:@"CURRENT SCORE: %im", (int)(currentScore)];
+        NSString *highestScoreStr = [NSString stringWithFormat:@"HIGHEST: %i", (int)(highestScore)];
+        NSString *currentScoreStr = [NSString stringWithFormat:@"SCORE: %i", (int)(currentScore)];
         
-        
-        CCLabelTTF *highestLabel = [CCLabelTTF labelWithString:highestScoreStr fontName:@"Arial" fontSize:20.0f];
-        highestLabel.color = ccc3(200, 0, 0);
+        CCLabelTTF *highestLabel = [CCLabelTTF labelWithString:highestScoreStr fontName:@"Arial" fontSize:14.0f];
+        highestLabel.color = ccc3(0, 0, 0);
         highestLabel.anchorPoint = CGPointMake(0, 0);
-        highestLabel.position = ccp(winSize.width / 2, winSize.height - 50);
+        highestLabel.position = ccp(282, winSize.height - 100);
         [self addChild:highestLabel];
 
-        CCLabelTTF *currentLabel = [CCLabelTTF labelWithString:currentScoreStr fontName:@"Arial" fontSize:20.0f];
-        currentLabel.color = ccc3(200, 0, 0);
+        CCLabelTTF *currentLabel = [CCLabelTTF labelWithString:currentScoreStr fontName:@"Arial" fontSize:30.0f];
+        currentLabel.color = ccc3(0, 0, 0);
         currentLabel.anchorPoint = CGPointMake(0, 0);
-        currentLabel.position = ccp(winSize.width / 2 - 10, winSize.height - 84);
+        currentLabel.position = ccp(280, winSize.height - 80);
         [self addChild:currentLabel];
         
                 
@@ -59,7 +58,7 @@
         
         
         CCMenu *menu = [CCMenu  menuWithItems:restartItem, nil];
-        menu.position = ccp(winSize.width - 60, 60);
+        menu.position = ccp(winSize.width - 105, 110);
 //@ttgong-End
         [self addChild:menu];
     }
