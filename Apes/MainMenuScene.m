@@ -15,7 +15,7 @@
 {
     if (self = [super init])
     {
-        [self addChild:[[MenuLayer alloc] init]];
+        [self addChild:[[[MenuLayer alloc] init] autorelease]];
     }
     return self;
 }
@@ -32,7 +32,7 @@
         [self addChild:bg z:-1];
         
         CCMenuItemImage *startBtn = [CCMenuItemImage itemFromNormalImage:@"start_button.png" selectedImage:@"start_button.png"  block:^(id sender){
-            [[CCDirector sharedDirector] replaceScene:[[GameScene alloc] init]];
+            [[CCDirector sharedDirector] replaceScene:[[[GameScene alloc] init] autorelease]];
         }];
         
         CCMenu *menu = [CCMenu menuWithItems:startBtn, nil];

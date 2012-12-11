@@ -18,7 +18,7 @@
 {
     if (self = [super init])
     {
-        [self addChild:[[StoryLayer alloc] init]];
+        [self addChild:[[[StoryLayer alloc] init] autorelease]];
     }
     return self;
 }
@@ -40,7 +40,7 @@
         CCLabelTTF *next = [CCLabelTTF labelWithString:@"Enter" fontName:@"Arial" fontSize:36.0f];
         next.color = ccc3(220, 0, 0);
         CCMenuItemLabel *nextItem = [CCMenuItemLabel itemWithLabel:next block:^(id sender){
-            [[CCDirector sharedDirector] replaceScene:[[MainMenuScene alloc] init]];
+            [[CCDirector sharedDirector] replaceScene:[[[MainMenuScene alloc] init] autorelease]];
         }];
         CCMenu *menu = [CCMenu menuWithItems:nextItem, nil];
         menu.position = ccp(winSize.width - next.contentSize.width / 2 - 20, next.contentSize.height / 2 + 10);

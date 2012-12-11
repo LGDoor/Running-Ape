@@ -114,8 +114,8 @@
 	[self removeStartupFlicker];
 	
 	// Run the intro Scene
-    IntroScene *introScene = [[IntroScene alloc] init];
-    GameScene *gameScene = [[GameScene alloc] init];
+    IntroScene *introScene = [[[IntroScene alloc] init] autorelease];
+    GameScene *gameScene = [[[GameScene alloc] init] autorelease];
 	[[CCDirector sharedDirector] runWithScene: introScene];
 }
 

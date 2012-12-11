@@ -25,9 +25,9 @@
 @end
 
 @interface Car : Enemy
-+ (Car*)car;
+- (id)initCar;
 @end
 
 @interface Airplane : Enemy
-+ (Airplane*)airplane;
+- (id)initAirplane;
 @end

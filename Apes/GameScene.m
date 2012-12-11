@@ -25,6 +25,14 @@
     }
     return self;
 }
+
+-(void)dealloc
+{
+    [_bgLayer release];
+    [_objLayer release];
+    [_hudLayer release];
+    [super dealloc];
+}
 @end
 
 @implementation BackgroundLayer
@@ -88,6 +96,10 @@
 // on "dealloc" you need to release all your retained objects
 - (void) dealloc
 {
+    [_citya release];
+    [_cityb release];
+    [_ground release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 	[super dealloc];
 }
 
@@ -115,20 +127,20 @@
     NSMutableArray *_bananas;
     NSMutableArray *_enemies;
     NSMutableArray *_bullets;
+    int nBananas;
 }
-
-#define kNumBananas 5
 
 - (id)init
 {
     if (self = [super init])
     {
-        _isJumping = NO;        
+        _isJumping = NO;
+        nBananas = 0;
         
         id cache = [CCSpriteFrameCache sharedSpriteFrameCache];
         [cache addSpriteFramesWithFile:@"ape.plist" textureFile:@"ape.png"];
         
-        _player = [CCSprite spriteWithSpriteFrameName:@"ape1.png"];
+        _player = [[CCSprite spriteWithSpriteFrameName:@"ape1.png"] retain];
         _player.anchorPoint = ccp(0, 1);
         _player.position = ccp(120, 60);
         CCSprite *shadow = [CCSprite spriteWithFile:@"ape_shadow.png"];
@@ -136,7 +148,7 @@
         shadow.position = ccp(125,27);
         [self addChild:shadow];
         
-        NSMutableArray *playerFrames = [[NSMutableArray alloc] init];
+        NSMutableArray *playerFrames = [[[NSMutableArray alloc] init] autorelease];
         
         [playerFrames addObject:[cache spriteFrameByName:@"ape1.png"]];
         [playerFrames addObject:[cache spriteFrameByName:@"ape2.png"]];
@@ -174,7 +186,11 @@
 - (void)dealloc
 {
     [startDate release], startDate = nil; 
-    
+    [_player release];
+    [_bananas release];
+    [_enemies release];
+    [_bullets release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }
 //@ttgong-End
@@ -187,21 +203,22 @@
         double p1 = ((double)arc4random() / ARC4RANDOM_MAX);
         CCSprite *enemy = nil;
         if (p1 < 0.4) {     // police
-            enemy = [[Police alloc] initPolice];
+            enemy = [[[Police alloc] initPolice] autorelease];
             enemy.anchorPoint = ccp(0,1);
             enemy.position = ccp(winSize.width, 74);
         } else if (p1 < 0.8) {    // car
-            enemy = [Car car];
+            enemy = [[[Car alloc] initCar] autorelease];
             enemy.anchorPoint = ccp(0,1);
             enemy.position = ccp(winSize.width, 62.5);
         } else { // plane
-            enemy = [Airplane airplane];
+            enemy = [[[Airplane alloc] initAirplane] autorelease];
             enemy.anchorPoint = ccp(0,1);
             enemy.position = ccp(winSize.width, 210);
         }        
         [self addChild:enemy];
         id a1 = [CCMoveBy actionWithDuration:winSize.width / POLICE_MOVE_SPEED position:ccp(-winSize.width - enemy.contentSize.width, 0)];
         id a2 = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+            [node stopAllActions];
             [node removeFromParentAndCleanup:YES];
             [_enemies removeObject:node];
         }];
@@ -224,6 +241,7 @@
                 bullet.position = ccp(enemy.position.x, 46);
                 id a1 = [CCMoveBy actionWithDuration:size.width / BULLET_MOVE_SPEED position:ccp(-size.width, 0)];
                 id a2 = [CCCallBlockN actionWithBlock:^(CCNode *node) {
+                    [node stopAllActions];
                     [node removeFromParentAndCleanup:YES];
                     [_bullets removeObject:node];
                 }];
@@ -248,18 +266,19 @@
 
 - (void)die
 {
+#ifndef GOD_MODE
     //@ttgong-Add
     timeSpent = -[startDate timeIntervalSinceNow];
     [self updateUserData:timeSpent];
     //@ttgong-End
-    [[CCDirector sharedDirector] replaceScene:[[FailureScene alloc] init]];
+    [[CCDirector sharedDirector] replaceScene:[[[FailureScene alloc] init] autorelease]];
+#endif
 }
 
 - (void)update:(ccTime)dt
 {
     // collision dectection
     Enemy *enemyHit = nil;
-    CCSprite *bananaToDelete = nil;
     
     for (CCSprite *bullet in _bullets) {
         if (CGRectIntersectsRect(bullet.boundingBox, _player.boundingBox)) {
@@ -268,6 +287,7 @@
     }
     
     for (Enemy *enemy in _enemies) {
+        CCSprite *bananaToDelete = nil;
         CGRect actualBox = CGRectInset(_player.boundingBox, 5.0, 10.0);
         if (CGRectIntersectsRect(enemy.boundingBox, actualBox)) {
             [self die];
@@ -285,6 +305,7 @@
             [bananaToDelete stopAllActions];
             [_bananas removeObject:bananaToDelete];
             [self removeChild:bananaToDelete cleanup:YES];
+            nBananas--;
         }
     }
     
@@ -328,19 +349,23 @@
 //        }], nil]];
 //    }
 //
-    
-    CGSize winSize = [CCDirector sharedDirector].winSize;
-    CCSprite *banana = [[CCSprite alloc] initWithFile:@"banana.png"];
-    banana.position = ccpAdd(_player.position, ccp(_player.contentSize.width / 2, -15));
-    
-    [_bananas addObject:banana];
-    [banana runAction:[CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:0.3 angle:360]]];
-    [banana runAction:[CCSequence actions:[CCMoveBy actionWithDuration:1.5 position:ccp(winSize.width, 0)],
-                       [CCCallBlockN actionWithBlock:^(CCNode *banana) {
-        [_bananas removeObject:banana];
-        [self removeChild:banana cleanup:YES];
-    }], nil]];
-    [self addChild:banana];
+    if (nBananas < kMaxBananas) {
+        nBananas++;
+        CGSize winSize = [CCDirector sharedDirector].winSize;
+        CCSprite *banana = [CCSprite spriteWithFile:@"banana.png"];
+        double flyingDist = winSize.width - _player.position.x;
+        banana.position = ccpAdd(_player.position, ccp(_player.contentSize.width / 2, -15));
+        
+        [_bananas addObject:banana];
+        [banana runAction:[CCRepeatForever actionWithAction:[CCRotateBy actionWithDuration:0.3 angle:360]]];
+        [banana runAction:[CCSequence actions:[CCMoveBy actionWithDuration:flyingDist / BANANA_MOVE_SPEED position:ccp(flyingDist, 0)], [CCCallBlockN actionWithBlock:^(CCNode *banana) {
+            [banana stopAllActions];
+            [_bananas removeObject:banana];
+            [self removeChild:banana cleanup:YES];
+            nBananas--;
+        }], nil]];
+        [self addChild:banana z:-1];
+    }
 }
 
 - (void)onPause
@@ -367,12 +392,12 @@
 {
     if (self = [super init])
     {
-        _objLayer = objLayer;
-        _jumpButton = [CCMenuItemImage itemFromNormalImage:@"jump_button.png" selectedImage:@"jump_button.png" target:_objLayer selector:@selector(onJumpTapped)];
+        _objLayer = [objLayer retain];
+        _jumpButton = [[CCMenuItemImage itemFromNormalImage:@"jump_button.png" selectedImage:@"jump_button.png" target:_objLayer selector:@selector(onJumpTapped)] retain];
         _jumpButton.position = ccp(40, 50);
-        _shootButton = [CCMenuItemImage itemFromNormalImage:@"shot_button.png" selectedImage:@"shot_button.png" target:_objLayer selector:@selector(onShootTapped)];
+        _shootButton = [[CCMenuItemImage itemFromNormalImage:@"shot_button.png" selectedImage:@"shot_button.png" target:_objLayer selector:@selector(onShootTapped)] retain];
         _shootButton.position = ccp(440, 50);
-        _pauseButton = [CCMenuItemImage itemFromNormalImage:@"pause_button.png" selectedImage:@"pause_button.png" target:self selector:@selector(onPauseButton)];
+        _pauseButton = [[CCMenuItemImage itemFromNormalImage:@"pause_button.png" selectedImage:@"pause_button.png" target:self selector:@selector(onPauseButton)] retain];
         _pauseButton.position = ccp(35, 290);
         CCMenu *menu = [CCMenu menuWithItems:_jumpButton, _shootButton, _pauseButton, nil];
         menu.position = CGPointZero;
@@ -383,9 +408,19 @@
     return self;
 }
 
+- (void)dealloc
+{
+    [_objLayer release];
+    [_jumpButton release];
+    [_shootButton release];
+    [_pauseButton release];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [super dealloc];
+}
+
 - (void)onPauseButton
 {
-    PauseLayer *pauseLayer = [[PauseLayer alloc] init];
+    PauseLayer *pauseLayer = [[[PauseLayer alloc] init] autorelease];
     [self.parent addChild:pauseLayer];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"pause" object:self];
     _jumpButton.visible = NO;
@@ -407,9 +442,13 @@
 - (id)init
 {
     if (self = [super initWithColor:ccc4(0, 0, 0, 128)]) {
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
         CCMenuItemImage *resumeButton = [CCMenuItemImage itemFromNormalImage:@"start_button.png" selectedImage:@"start_button.png" target:self selector:@selector(onResumeButton)];
-        resumeButton.position = ccp(0, 0);
-        CCMenu *menu = [CCMenu menuWithItems:resumeButton, nil];
+        resumeButton.position = ccp(winSize.width / 2 - 60, winSize.height / 2);
+        CCMenuItemImage *restartButton = [CCMenuItemImage itemFromNormalImage:@"restart_button.png" selectedImage:@"restart_button.png" target:self selector:@selector(onRestartButton)];
+        restartButton.position = ccp(winSize.width / 2 + 60, winSize.height / 2);
+        CCMenu *menu = [CCMenu menuWithItems:resumeButton, restartButton, nil];
+        menu.position = ccp(0, 0);
         [self addChild:menu];
     }
     return self;
@@ -419,6 +458,12 @@
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"resume" object:self];
     [self removeFromParentAndCleanup:YES];
+}
+
+- (void)onRestartButton
+{
+    GameScene *scene = [[[GameScene alloc] init] autorelease];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:0.5 scene:scene]];
 }
 
 @end

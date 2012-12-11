@@ -15,7 +15,7 @@
 {
     if (self = [super init])
     {
-        [self addChild:[[FailureLayer alloc] init]];
+        [self addChild:[[[FailureLayer alloc] init] autorelease]];
     }
     return self;
 }
@@ -68,7 +68,7 @@
 
 //@ttgong-Add
 - (void)restartGame {
-    [[CCDirector sharedDirector] replaceScene:[[GameScene alloc] init]];
+    [[CCDirector sharedDirector] replaceScene:[[[GameScene alloc] init] autorelease]];
 }
 //@ttgong-End
 @end

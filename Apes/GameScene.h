@@ -27,7 +27,6 @@
 @interface ObjectsLayer : CCLayer
 {
     CCSprite *_player;
-    CCSpriteBatchNode *_policeBatchNode;
 //@ttgong-Add    
     NSDate *startDate;
     CGFloat timeSpent;

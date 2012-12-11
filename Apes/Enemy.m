@@ -25,17 +25,17 @@
 {
     if (self = [super initWithSpriteFrameName:@"police1.png"])
     {
-        NSMutableArray *policeFrames = [[NSMutableArray alloc] init];
+        NSMutableArray *policeFrames = [[[NSMutableArray alloc] init] autorelease];
         [policeFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"police1.png"]];
         [policeFrames addObject:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"police2.png"]];
         CCAnimation *policeAnimation = [CCAnimation animationWithFrames:policeFrames delay:0.15f];
         [self runAction:[CCRepeatForever actionWithAction:[CCAnimate actionWithAnimation:policeAnimation restoreOriginalFrame:NO]]];
         
         self.hp = 1;
-        _fire = [CCSprite spriteWithSpriteFrameName:@"police_fire.png"];
+        _fire = [[CCSprite spriteWithSpriteFrameName:@"police_fire.png"] retain];
         _fire.position = ccp(0, self.contentSize.height / 2);
         _fire.visible = NO;
-        _shadow = [CCSprite spriteWithSpriteFrameName:@"police_shadow.png"];
+        _shadow = [[CCSprite spriteWithSpriteFrameName:@"police_shadow.png"] retain];
         _shadow.position = ccp(self.contentSize.width / 2 + 2, 0);
         [self addChild:_shadow z:-1];
         [self addChild:_fire z:-1];
@@ -48,18 +48,24 @@
     [_fire runAction:[CCSequence actions:[CCShow action], [CCDelayTime actionWithDuration:0.2], [CCHide action], nil]];
 }
 
+- (void)dealloc
+{
+    [_fire release];
+    [_shadow release];
+    [super dealloc];
+}
+
 @end
 
 
 @implementation Car
-+ (Car*)car
+- (id)initCar
 {
-    Car *car = nil;
-    if ((car = [[Car alloc] initWithFile:@"policecar1.png"]))
+    if (self = [super initWithFile:@"policecar1.png"])
     {
-        car.hp = 2;
+        self.hp = 2;
     }
-    return car;
+    return self;
 }
 
 - (void)hit
@@ -81,14 +87,13 @@
 
 @implementation Airplane
 
-+ (Airplane*)airplane
+- (id)initAirplane
 {
-    Airplane *airplane = nil;
-    if ((airplane = [[Airplane alloc] initWithFile:@"airplane.png"]))
+    if (self = [super initWithFile:@"airplane.png"])
     {
-        airplane.hp = 1;
+        self.hp = 1;
     }
-    return airplane;
+    return self;
 }
 
 @end
