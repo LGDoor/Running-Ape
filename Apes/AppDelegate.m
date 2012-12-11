@@ -113,6 +113,12 @@
 	// Removes the startup flicker
 	[self removeStartupFlicker];
 	
+    // Load the sound
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"game_bgm.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"jump.wav"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"banana.wav"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"enemy_hit.wav"];
+    
 	// Run the intro Scene
     IntroScene *introScene = [[[IntroScene alloc] init] autorelease];
     GameScene *gameScene = [[[GameScene alloc] init] autorelease];

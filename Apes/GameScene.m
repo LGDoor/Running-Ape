@@ -26,6 +26,23 @@
     return self;
 }
 
+- (void)onEnterTransitionDidFinish
+{
+    [super onEnterTransitionDidFinish];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"game_bgm.mp3" loop:YES];
+}
+
+- (void)onExit
+{
+    [super onExit];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+}
+- (void)onExitTransitionDidStart
+{
+    [super onExitTransitionDidStart];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+}
+
 -(void)dealloc
 {
     [_bgLayer release];
@@ -129,6 +146,7 @@
     NSMutableArray *_bullets;
     int nBananas;
 }
+@synthesize currentScore = _currentScore;
 
 - (id)init
 {
@@ -136,6 +154,7 @@
     {
         _isJumping = NO;
         nBananas = 0;
+        _currentScore = 0;
         
         id cache = [CCSpriteFrameCache sharedSpriteFrameCache];
         [cache addSpriteFramesWithFile:@"ape.plist" textureFile:@"ape.png"];
@@ -268,8 +287,7 @@
 {
 #ifndef GOD_MODE
     //@ttgong-Add
-    timeSpent = -[startDate timeIntervalSinceNow];
-    [self updateUserData:timeSpent];
+    [self updateUserData:_currentScore];
     //@ttgong-End
     [[CCDirector sharedDirector] replaceScene:[[[FailureScene alloc] init] autorelease]];
 #endif
@@ -277,12 +295,15 @@
 
 - (void)update:(ccTime)dt
 {
+    _currentScore += dt * 10;
+    
     // collision dectection
     Enemy *enemyHit = nil;
     
     for (CCSprite *bullet in _bullets) {
         if (CGRectIntersectsRect(bullet.boundingBox, _player.boundingBox)) {
             [self die];
+            return;
         }
     }
     
@@ -291,6 +312,7 @@
         CGRect actualBox = CGRectInset(_player.boundingBox, 5.0, 10.0);
         if (CGRectIntersectsRect(enemy.boundingBox, actualBox)) {
             [self die];
+            return;
         }
 
         for (CCSprite *banana in _bananas) {
@@ -311,6 +333,7 @@
     
     if (enemyHit) {
         [enemyHit hit];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"enemy_hit.wav"];
         if (enemyHit.hp == 0) {
             [enemyHit stopAllActions];
             [_enemies removeObject:enemyHit];
@@ -328,6 +351,7 @@
         id action3 = [action1 reverse];
         id action4 = [CCCallBlock actionWithBlock:^{_isJumping = NO;}];
         [_player runAction:[CCSequence actions:[CCEaseOut actionWithAction:action1 rate:2], action2, [CCEaseIn actionWithAction:action3 rate:2], action4, nil]];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"jump.wav"];
     }
 }
 
@@ -366,6 +390,8 @@
             nBananas--;
         }], nil]];
         [self addChild:banana z:-1];
+        
+        [[SimpleAudioEngine sharedEngine] playEffect:@"banana.wav"];
     }
 }
 
@@ -394,19 +420,32 @@
     if (self = [super init])
     {
         _objLayer = [objLayer retain];
+        
         _jumpButton = [[CCMenuItemImage itemFromNormalImage:@"jump_button.png" selectedImage:@"jump_button.png" target:_objLayer selector:@selector(onJumpTapped)] retain];
         _jumpButton.position = ccp(40, 50);
         _shootButton = [[CCMenuItemImage itemFromNormalImage:@"shot_button.png" selectedImage:@"shot_button.png" target:_objLayer selector:@selector(onShootTapped)] retain];
         _shootButton.position = ccp(440, 50);
         _pauseButton = [[CCMenuItemImage itemFromNormalImage:@"pause_button.png" selectedImage:@"pause_button.png" target:self selector:@selector(onPauseButton)] retain];
         _pauseButton.position = ccp(35, 290);
+        
         CCMenu *menu = [CCMenu menuWithItems:_jumpButton, _shootButton, _pauseButton, nil];
         menu.position = CGPointZero;
         [self addChild:menu];
         
+        _scoreLabel = [[CCLabelAtlas labelWithString:@"0" charMapFile:@"numbers.png" itemWidth:15 itemHeight:19 startCharMap:'0'] retain];
+        _scoreLabel.anchorPoint = ccp(1, 0.5);
+        _scoreLabel.position = ccp(430, 280);
+        [self addChild:_scoreLabel];
+        
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onResume) name:@"resume" object:nil];
     }
     return self;
+}
+
+- (void)draw
+{
+    _scoreLabel.string = [NSString stringWithFormat:@"%i", (int)(_objLayer.currentScore)];
+    [super draw];
 }
 
 - (void)dealloc
@@ -415,6 +454,7 @@
     [_jumpButton release];
     [_shootButton release];
     [_pauseButton release];
+    [_scoreLabel release];
     [[NSNotificationCenter defaultCenter] removeObserver:self];
     [super dealloc];
 }

@@ -29,10 +29,10 @@
     CCSprite *_player;
 //@ttgong-Add    
     NSDate *startDate;
-    CGFloat timeSpent;
 //@ttgong-End
 }
 
+@property (assign, nonatomic) ccTime currentScore;
 @end
 
 @interface HudLayer : CCLayer
@@ -41,6 +41,7 @@
     CCMenuItem *_jumpButton;
     CCMenuItem *_shootButton;
     CCMenuItem *_pauseButton;
+    CCLabelAtlas *_scoreLabel;
 }
 
 -(id)initWithObjLayer:(ObjectsLayer*)objLayer;

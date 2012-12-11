@@ -47,7 +47,7 @@
         highestLabel.anchorPoint = CGPointMake(0, 0);
         highestLabel.position = ccp(winSize.width / 2, winSize.height - 50);
         [self addChild:highestLabel];
-        
+
         CCLabelTTF *currentLabel = [CCLabelTTF labelWithString:currentScoreStr fontName:@"Arial" fontSize:20.0f];
         currentLabel.color = ccc3(200, 0, 0);
         currentLabel.anchorPoint = CGPointMake(0, 0);
@@ -68,7 +68,8 @@
 
 //@ttgong-Add
 - (void)restartGame {
-    [[CCDirector sharedDirector] replaceScene:[[[GameScene alloc] init] autorelease]];
+    GameScene *scene = [[[GameScene alloc] init] autorelease];
+    [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:0.5 scene:scene]];
 }
 //@ttgong-End
 @end

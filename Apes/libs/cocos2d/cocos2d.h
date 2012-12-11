@@ -44,6 +44,8 @@
 
 #import <Availability.h>
 
+#import "SimpleAudioEngine.h"
+
 //
 // all cocos2d include files
 //
