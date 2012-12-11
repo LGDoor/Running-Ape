@@ -18,7 +18,9 @@
 		B01E74BF167706B2002BADD2 /* game_bgm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B01E74BE167706B2002BADD2 /* game_bgm.mp3 */; };
 		B01E74C1167709A9002BADD2 /* enemy_hit.wav in Resources */ = {isa = PBXBuildFile; fileRef = B01E74C0167709A9002BADD2 /* enemy_hit.wav */; };
 		B01E74C316770F64002BADD2 /* numbers.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E74C216770F64002BADD2 /* numbers.png */; };
-		B050582E166C7F0000D66021 /* final_page.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505824166C7F0000D66021 /* final_page.png */; };
+		B01E74C61677270B002BADD2 /* mute_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E74C416772707002BADD2 /* mute_button.png */; };
+		B01E74C71677270B002BADD2 /* unmute_button.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E74C516772708002BADD2 /* unmute_button.png */; };
+		B01E74C916772998002BADD2 /* final_page.png in Resources */ = {isa = PBXBuildFile; fileRef = B01E74C816772996002BADD2 /* final_page.png */; };
 		B0505830166C7F0000D66021 /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505826166C7F0000D66021 /* page1.png */; };
 		B0505832166C7F0000D66021 /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = B0505828166C7F0000D66021 /* page2.png */; };
 		B0505853166E1A1800D66021 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = B0505852166E1A1800D66021 /* MainMenuScene.m */; };
@@ -167,7 +169,9 @@
 		B01E74BE167706B2002BADD2 /* game_bgm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = game_bgm.mp3; sourceTree = "<group>"; };
 		B01E74C0167709A9002BADD2 /* enemy_hit.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = enemy_hit.wav; sourceTree = "<group>"; };
 		B01E74C216770F64002BADD2 /* numbers.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = numbers.png; sourceTree = "<group>"; };
-		B0505824166C7F0000D66021 /* final_page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = final_page.png; sourceTree = "<group>"; };
+		B01E74C416772707002BADD2 /* mute_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mute_button.png; sourceTree = "<group>"; };
+		B01E74C516772708002BADD2 /* unmute_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = unmute_button.png; sourceTree = "<group>"; };
+		B01E74C816772996002BADD2 /* final_page.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = final_page.png; sourceTree = "<group>"; };
 		B0505826166C7F0000D66021 /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
 		B0505828166C7F0000D66021 /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
 		B0505851166E1A1800D66021 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
@@ -519,9 +523,11 @@
 				B01E74B816764790002BADD2 /* main_menu_bg.png */,
 				B08051631665AF43008F143B /* shot_button.png */,
 				B080515D166516AB008F143B /* ground.png */,
-				B0505824166C7F0000D66021 /* final_page.png */,
 				B0505826166C7F0000D66021 /* page1.png */,
 				B0505828166C7F0000D66021 /* page2.png */,
+				B01E74C816772996002BADD2 /* final_page.png */,
+				B01E74C416772707002BADD2 /* mute_button.png */,
+				B01E74C516772708002BADD2 /* unmute_button.png */,
 				B01E74721674EDBD002BADD2 /* start_button.png */,
 				B01E74741674EDC8002BADD2 /* restart_button.png */,
 				B01E74761674EE36002BADD2 /* pause_button.png */,
@@ -876,7 +882,6 @@
 				B08051661665C031008F143B /* banana.png in Resources */,
 				B09729A41669D645004E9DAC /* FailureScene.h in Resources */,
 				B09729A51669D645004E9DAC /* FailureScene.m in Resources */,
-				B050582E166C7F0000D66021 /* final_page.png in Resources */,
 				B0505830166C7F0000D66021 /* page1.png in Resources */,
 				B0505832166C7F0000D66021 /* page2.png in Resources */,
 				B0505858166E33F600D66021 /* airplane.png in Resources */,
@@ -899,6 +904,9 @@
 				B01E74BF167706B2002BADD2 /* game_bgm.mp3 in Resources */,
 				B01E74C1167709A9002BADD2 /* enemy_hit.wav in Resources */,
 				B01E74C316770F64002BADD2 /* numbers.png in Resources */,
+				B01E74C61677270B002BADD2 /* mute_button.png in Resources */,
+				B01E74C71677270B002BADD2 /* unmute_button.png in Resources */,
+				B01E74C916772998002BADD2 /* final_page.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -420,11 +420,12 @@
     if (self = [super init])
     {
         _objLayer = [objLayer retain];
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
         
         _jumpButton = [[CCMenuItemImage itemFromNormalImage:@"jump_button.png" selectedImage:@"jump_button.png" target:_objLayer selector:@selector(onJumpTapped)] retain];
-        _jumpButton.position = ccp(40, 50);
+        _jumpButton.position = ccp(40, 40);
         _shootButton = [[CCMenuItemImage itemFromNormalImage:@"shot_button.png" selectedImage:@"shot_button.png" target:_objLayer selector:@selector(onShootTapped)] retain];
-        _shootButton.position = ccp(440, 50);
+        _shootButton.position = ccp(winSize.width - 40, 40);
         _pauseButton = [[CCMenuItemImage itemFromNormalImage:@"pause_button.png" selectedImage:@"pause_button.png" target:self selector:@selector(onPauseButton)] retain];
         _pauseButton.position = ccp(35, 290);
         
@@ -484,11 +485,28 @@
 {
     if (self = [super initWithColor:ccc4(0, 0, 0, 128)]) {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
+        
         CCMenuItemImage *resumeButton = [CCMenuItemImage itemFromNormalImage:@"start_button.png" selectedImage:@"start_button.png" target:self selector:@selector(onResumeButton)];
         resumeButton.position = ccp(winSize.width / 2 - 60, winSize.height / 2);
+        
         CCMenuItemImage *restartButton = [CCMenuItemImage itemFromNormalImage:@"restart_button.png" selectedImage:@"restart_button.png" target:self selector:@selector(onRestartButton)];
         restartButton.position = ccp(winSize.width / 2 + 60, winSize.height / 2);
-        CCMenu *menu = [CCMenu menuWithItems:resumeButton, restartButton, nil];
+        
+        CCMenuItemImage *muteImage = [CCMenuItemImage itemFromNormalImage:@"mute_button.png" selectedImage:@"mute_button.png"];
+        CCMenuItemImage *unmuteImage = [CCMenuItemImage itemFromNormalImage:@"unmute_button.png" selectedImage:@"unmute_button.png"];
+        CCMenuItemToggle *muteButton = [CCMenuItemToggle itemWithBlock:^(id sender) {
+            SimpleAudioEngine *engine = [SimpleAudioEngine sharedEngine];
+            CCMenuItemToggle *button = (CCMenuItemToggle *)sender;
+            if (button.selectedItem == muteImage)
+            {
+                engine.mute = YES;
+            } else {
+                engine.mute = NO;
+            }
+        } items:unmuteImage, muteImage, nil];
+        muteButton.position = ccp(40, 40);
+        
+        CCMenu *menu = [CCMenu menuWithItems:resumeButton, restartButton, muteButton, nil];
         menu.position = ccp(0, 0);
         [self addChild:menu];
     }
@@ -506,5 +524,4 @@
     GameScene *scene = [[[GameScene alloc] init] autorelease];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:0.5 scene:scene]];
 }
-
 @end
