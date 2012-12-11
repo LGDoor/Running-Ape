@@ -323,10 +323,11 @@
 {
     if (!_isJumping) {
         _isJumping = YES;
-        id action1 = [CCMoveBy actionWithDuration:0.35 position:ccp(0,160)];
-        id action2 = [action1 reverse];
-        id action3 = [CCCallBlock actionWithBlock:^{_isJumping = NO;}];
-        [_player runAction:[CCSequence actions:[CCEaseOut actionWithAction:action1 rate:2], [CCEaseIn actionWithAction:action2 rate:2], action3, nil]];
+        id action1 = [CCMoveBy actionWithDuration:0.4 position:ccp(0,160)];
+        id action2 = [CCDelayTime actionWithDuration:0.08];
+        id action3 = [action1 reverse];
+        id action4 = [CCCallBlock actionWithBlock:^{_isJumping = NO;}];
+        [_player runAction:[CCSequence actions:[CCEaseOut actionWithAction:action1 rate:2], action2, [CCEaseIn actionWithAction:action3 rate:2], action4, nil]];
     }
 }
 
