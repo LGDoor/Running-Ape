@@ -32,7 +32,8 @@
         [self addChild:bg z:-1];
         
         CCMenuItemImage *startBtn = [CCMenuItemImage itemFromNormalImage:@"start_button.png" selectedImage:@"start_button.png"  block:^(id sender){
-            [[CCDirector sharedDirector] replaceScene:[[[GameScene alloc] init] autorelease]];
+            GameScene *scene = [[[GameScene alloc] init] autorelease];
+            [[CCDirector sharedDirector] replaceScene:[CCTransitionTurnOffTiles transitionWithDuration:0.5 scene:scene]];
         }];
         
         CCMenu *menu = [CCMenu menuWithItems:startBtn, nil];

@@ -8,9 +8,7 @@
 
 #import "IntroScene.h"
 #import "MainMenuScene.h"
-//@ttgong-Add
 #import "GameScene.h"
-//@ttgong-End
 
 @implementation IntroScene
 
@@ -26,51 +24,47 @@
 @end
 
 @implementation StoryLayer
+{
+    int _tapCount;
+    CCSprite *_storyPage;
+}
+
 //@ttgong-Add
 - (id)init
 {
     if (self = [super init])
     {
-        winSize = [[CCDirector sharedDirector] winSize];
-        
-        CCLabelTTF *title = [CCLabelTTF labelWithString:@"Intro" fontName:@"Arial" fontSize:80.0f];
-        title.color = ccc3(200, 0, 0);
-        title.position = ccp(winSize.width / 2, winSize.height / 2);
-        
-        CCLabelTTF *next = [CCLabelTTF labelWithString:@"Enter" fontName:@"Arial" fontSize:36.0f];
-        next.color = ccc3(220, 0, 0);
-        CCMenuItemLabel *nextItem = [CCMenuItemLabel itemWithLabel:next block:^(id sender){
-            [[CCDirector sharedDirector] replaceScene:[[[MainMenuScene alloc] init] autorelease]];
-        }];
-        CCMenu *menu = [CCMenu menuWithItems:nextItem, nil];
-        menu.position = ccp(winSize.width - next.contentSize.width / 2 - 20, next.contentSize.height / 2 + 10);
-        
-        // background layer
-        shouldMove = YES;
-        CCLayerColor *page = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 255) width:winSize.width height:winSize.height];
-        page.anchorPoint = CGPointMake(0, 0.5);
-        page.tag = 999;
-        [self addChild:page];
+        _tapCount = 0;
+        CGSize winSize = [[CCDirector sharedDirector] winSize];
+        _storyPage = [[CCSprite alloc] init];
         
         // page 1
-        CCSprite *page1 = [CCSprite spriteWithFile:@"page1.png" rect:CGRectMake(0, 0, winSize.width, winSize.height)];
-        page1.anchorPoint = CGPointMake(0, 0);
-        [page addChild:page1];
+        CCSprite *page1 = [CCSprite spriteWithFile:@"page1.png"];
+        page1.anchorPoint = ccp(0, 0);
+        page1.position = CGPointZero;
+        [_storyPage addChild:page1];
         
         // page 2
-        CCSprite *page2 = [CCSprite spriteWithFile:@"page2.png" rect:CGRectMake(0, 0, winSize.width, winSize.height)];
-        page2.anchorPoint = CGPointMake(-1, 0);
-        [page addChild:page2];
-        [page2 addChild:menu];
+        CCSprite *page2 = [CCSprite spriteWithFile:@"page2.png"];
+        page2.anchorPoint = ccp(0, 0);
+        page2.position = ccp(winSize.width, 0);
+        [_storyPage addChild:page2];
+        
+        [self addChild:_storyPage];
+        self.isTouchEnabled = YES;
     }
     return self;
 }
 
-
-- (void)onEnter
+- (void)dealloc
 {
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:TRUE];
-    [super onEnter];
+    [_storyPage release];
+    [super dealloc];
+}
+
+-(void) registerWithTouchDispatcher
+{
+	[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
 }
 
 - (BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
@@ -80,19 +74,15 @@
 
 - (void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    // page animation
-    if(!shouldMove) return;
-    CCLayerColor *page = (CCLayerColor *)[self getChildByTag:999];
-
-    shouldMove = NO;
-    CCMoveBy *moveLeft = [CCMoveBy actionWithDuration:0.5 position:CGPointMake(-winSize.width, 0)];
-//    id enableTouch = [CCCallFunc actionWithTarget:self selector:@selector(enableTouch)];
-    [page runAction:moveLeft];
-
-}
-
-- (void)enableTouch {
-    shouldMove = YES;
+    _tapCount++;
+    CGSize winSize = [[CCDirector sharedDirector] winSize];
+    if (_tapCount < 2) {
+        CCMoveBy *moveLeft = [CCEaseOut actionWithAction:[CCMoveBy actionWithDuration:0.5 position:ccp(-winSize.width, 0)] rate:2.0];
+        [_storyPage runAction:moveLeft];
+    } else {
+        MainMenuScene *scene = [[[MainMenuScene alloc] init] autorelease];
+        [[CCDirector sharedDirector] replaceScene: [CCTransitionSlideInR transitionWithDuration:0.5 scene:scene]];
+    }
 }
 //@ttgong-End
 @end

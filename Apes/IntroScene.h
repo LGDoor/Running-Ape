@@ -11,12 +11,6 @@
 @interface IntroScene : CCScene
 
 @end
-//@ttgong-Add
+
 @interface StoryLayer : CCLayer <CCTargetedTouchDelegate>
-{
-    BOOL shouldMove;
-    
-    CGSize winSize;
-}
-//@ttgong-End
 @end
