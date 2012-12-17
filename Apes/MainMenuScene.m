@@ -42,4 +42,16 @@
     }
     return self;
 }
+
+-(void)onEnter
+{
+    [super onEnter];
+    [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"menu_bgm.mp3" loop:YES];
+}
+
+-(void)onExitTransitionDidStart
+{
+    [super onExitTransitionDidStart];
+    [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
+}
 @end

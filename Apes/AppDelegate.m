@@ -115,6 +115,7 @@
 	
     // Load the sound
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"game_bgm.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"menu_bgm.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"jump.wav"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"banana.wav"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"enemy_hit.wav"];

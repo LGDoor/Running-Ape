@@ -346,7 +346,7 @@
 {
     if (!_isJumping) {
         _isJumping = YES;
-        id action1 = [CCMoveBy actionWithDuration:0.4 position:ccp(0,160)];
+        id action1 = [CCMoveBy actionWithDuration:0.3 position:ccp(0,160)];
         id action2 = [CCDelayTime actionWithDuration:0.08];
         id action3 = [action1 reverse];
         id action4 = [CCCallBlock actionWithBlock:^{_isJumping = NO;}];
